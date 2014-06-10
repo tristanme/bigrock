@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BigRock.Models.Person>
+
+@{
+  ViewBag.Title = "People";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+  @Html.ActionLink("Add a new person", "Create")
+
+  @using (Html.BeginForm("Index", "People", FormMethod.Get))
+  {
+    <div style="height: 34px; margin-bottom: 20px;">
+      @Html.TextBox("SearchValue", "", new { @class = "form-control", @style = "float: left;" })
+      <input type="submit" value="Find" class="btn btn-default" style="margin-left: 20px; float: left;" />
+    </div>
+  }
+</p>
+<table class="table">
+  <tr>
+    <th>
+      @Html.DisplayNameFor(model => model.FirstName)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.MiddleName)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.LastName)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.FamilyCode)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.SecurityCard)
+    </th>
+    <th>
+      @Html.DisplayNameFor(model => model.TypeCode)
+    </th>
+    <th></th>
+  </tr>
+
+  @foreach (var item in Model)
+  {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.FirstName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.MiddleName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.LastName)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.FamilyCode)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.SecurityCard)
+      </td>
+      <td>
+        @if (item.TypeCode != BigRock.Models.Person.TypeCodes.Other)
+        {
+          @Html.DisplayFor(modelItem => item.TypeCode)
+        }
+        else
+        {
+          @Html.DisplayFor(modelItem => item.TypeCodeOther)
+        }
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+        @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+      </td>
+    </tr>
+  }
+
+</table>
