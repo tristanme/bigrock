@@ -20,11 +20,9 @@ namespace BigRock.Models
             [Description("Other")]
             Other
         }
-
+ 
         [Key]
         public int ID { get; set; }
-
-        public int? ParentID { get; set; }
 
         [Display(Name = "First name")]
         [DataType(DataType.Text)]

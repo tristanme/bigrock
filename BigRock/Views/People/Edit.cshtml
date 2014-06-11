@@ -12,18 +12,10 @@
   @Html.AntiForgeryToken()
 
   <div class="form-horizontal">
-    <h4>Editing: @ViewBag.Title</h4>
+    <h3>Editing: @ViewBag.Title</h3>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
-
-    <div class="form-group">
-      @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-2" })
-      <div class="col-md-10">
-        @Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
-      </div>
-    </div>
 
     <div class="form-group">
       @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -80,17 +72,6 @@
     <div class="col-md-10">
       @Html.EditorFor(model => model.TypeCodeOther, new { htmlAttributes = new { @class = "form-control" } })
       @Html.ValidationMessageFor(model => model.TypeCodeOther, "", new { @class = "text-danger" })
-    </div>
-  </div>
-    }
-
-    @{
-  string parentVisible = (@Model.TypeCode == BigRock.Models.Person.TypeCodes.Child ? "block" : "none");
-  <div id="ParentID_Container" class="form-group" style="display: @parentVisible;">
-    @Html.LabelFor(model => model.ParentID, htmlAttributes: new { @class = "control-label col-md-2" })
-    <div class="col-md-10">
-      @Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control" } })
-      @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
     </div>
   </div>
     }

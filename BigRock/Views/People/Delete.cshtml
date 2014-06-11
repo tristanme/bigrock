@@ -1,88 +1,82 @@
 ﻿@model BigRock.Models.Person
 
 @{
-    ViewBag.Title = "Delete";
+  ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
+@{
+  <h3>Are you sure you want to delete @Model.FirstName @Model.LastName?</h3>
+}
 <div>
-    <h4>Person</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ParentID)
-        </dt>
+  <hr />
+  <dl class="dl-horizontal">
+    <dt>
+      @Html.DisplayNameFor(model => model.FirstName)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ParentID)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.FirstName)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.MiddleName)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.MiddleName)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.LastName)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.MiddleName)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.LastName)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.FamilyCode)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.FamilyCode)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.FamilyCode)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.SecurityCard)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.FamilyCode)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.SecurityCard)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.SecurityCard)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.TypeCode)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.SecurityCard)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.TypeCode)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TypeCode)
-        </dt>
+    <dt>
+      @Html.DisplayNameFor(model => model.TypeCodeOther)
+    </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TypeCode)
-        </dd>
+    <dd>
+      @Html.DisplayFor(model => model.TypeCodeOther)
+    </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TypeCodeOther)
-        </dt>
+  </dl>
+  <div style="clear: both; padding-top: 20px;">
 
-        <dd>
-            @Html.DisplayFor(model => model.TypeCodeOther)
-        </dd>
+    @using (Html.BeginForm())
+    {
+      @Html.AntiForgeryToken()
 
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
+      <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+      </div>
     }
+  </div>
 </div>

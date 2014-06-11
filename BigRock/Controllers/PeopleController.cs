@@ -50,7 +50,9 @@ namespace BigRock.Controllers
         // GET: People/Create
         public ActionResult Create()
         {
+
             return View();
+
         }
 
         // POST: People/Create
@@ -58,7 +60,7 @@ namespace BigRock.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,ParentID,FirstName,MiddleName,LastName,FamilyCode,SecurityCard,TypeCode,TypeCodeOther")] Person person)
+        public ActionResult Create([Bind(Include = "ID,FirstName,MiddleName,LastName,FamilyCode,SecurityCard,TypeCode,TypeCodeOther")] Person person)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +92,7 @@ namespace BigRock.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,ParentID,FirstName,MiddleName,LastName,FamilyCode,SecurityCard,TypeCode,TypeCodeOther")] Person person)
+        public ActionResult Edit([Bind(Include = "ID,FirstName,MiddleName,LastName,FamilyCode,SecurityCard,TypeCode,TypeCodeOther")] Person person)
         {
             if (ModelState.IsValid)
             {
