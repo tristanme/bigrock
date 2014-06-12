@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
-using System.ComponentModel;
 using System.Text;
+using System.Collections.Generic;
+using BigRock.Models.Helpers;
 
 namespace BigRock.Models
 {
@@ -12,20 +13,6 @@ namespace BigRock.Models
 
     public class Person
     {
-        public enum TypeCodes
-        {
-            [Description("Parent")]
-            Parent,
-
-            [Description("Child")]
-            Child,
-
-            [Description("Employee")]
-            Employee,
-
-            [Description("Other")]
-            Other
-        }
 
         [Key]
         public int ID { get; set; }
@@ -65,13 +52,15 @@ namespace BigRock.Models
         public string SecurityCard { get; set; }
 
         [Display(Name = "Type")]
-        [EnumDataType(typeof(TypeCodes))]
+        [EnumDataType(typeof(Enumerations.TypeCodes))]
         [Required]
-        public TypeCodes TypeCode { get; set; }
+        public Enumerations.TypeCodes TypeCode { get; set; }
 
         [Display(Name = "Other")]
         [DataType(DataType.Text)]
         public string TypeCodeOther { get; set; }
+
+        public Address Address { get; set; }
 
         #region Helper functions
 
@@ -103,5 +92,4 @@ namespace BigRock.Models
 
         #endregion
     }
-
 }

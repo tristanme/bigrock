@@ -47,7 +47,7 @@
         @Html.DisplayFor(modelItem => item.SecurityCard)
       </td>
       <td>
-        @if (item.TypeCode != BigRock.Models.Person.TypeCodes.Other)
+        @if (item.TypeCode != BigRock.Models.Helpers.Enumerations.TypeCodes.Other)
         {
           @Html.DisplayFor(modelItem => item.TypeCode)
         }

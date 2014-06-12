@@ -1,7 +1,9 @@
 namespace BigRock.Migrations
 {
     using BigRock.Models;
+    using BigRock.Models.Helpers;
     using System;
+    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
@@ -15,14 +17,22 @@ namespace BigRock.Migrations
 
         protected override void Seed(BigRock.Models.BigRockConnection context)
         {
-            context.Person.AddOrUpdate(i => i.LastName,
+            Address homeAddress = new Address
+            {
+                Block = "310 Cypress Walk Way",
+                City = "Charleston",
+                ZipCode = "29492"
+            };
+
+            context.Person.AddOrUpdate(i => new { i.FirstName, i.LastName, i.FamilyCode },
                 new Person
                 {
                     FirstName = "Tristan",
                     MiddleName = "Hobart",
                     LastName = "Mendenhall",
                     FamilyCode = "0000",
-                    TypeCode = Person.TypeCodes.Parent
+                    TypeCode = Enumerations.TypeCodes.Parent,
+                    Address = homeAddress
                 },
                 new Person
                 {
@@ -30,7 +40,8 @@ namespace BigRock.Migrations
                     MiddleName = "Wilkins",
                     LastName = "Mendenhall",
                     FamilyCode = "0000",
-                    TypeCode = Person.TypeCodes.Parent
+                    TypeCode = Enumerations.TypeCodes.Parent,
+                    Address = homeAddress
                 },
                 new Person
                 {
@@ -38,7 +49,8 @@ namespace BigRock.Migrations
                     MiddleName = "Reed",
                     LastName = "Mendenhall",
                     FamilyCode = "0000",
-                    TypeCode = Person.TypeCodes.Child
+                    TypeCode = Enumerations.TypeCodes.Child,
+                    Address = homeAddress
                 },
                 new Person
                 {
@@ -46,7 +58,8 @@ namespace BigRock.Migrations
                     MiddleName = "Pierce",
                     LastName = "Mendenhall",
                     FamilyCode = "0000",
-                    TypeCode = Person.TypeCodes.Child
+                    TypeCode = Enumerations.TypeCodes.Child,
+                    Address = homeAddress
                 });
         }
     }
