@@ -1,7 +1,7 @@
 ﻿@model BigRock.Models.Person
 
 @{
-  ViewBag.Title = @Model.FirstName + " " + @Model.LastName;
+  ViewBag.Title = "Edit";
 }
 
 <script type="text/javascript" src="/scripts/jquery-1.10.2.min.js"></script>
@@ -12,7 +12,7 @@
   @Html.AntiForgeryToken()
 
   <div class="form-horizontal">
-    <h3>Editing: @ViewBag.Title</h3>
+    <h3>Editing @Model.DisplayName</h3>
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.ID)
